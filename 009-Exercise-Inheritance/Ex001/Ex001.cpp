@@ -6,31 +6,26 @@
 
 #include "SortBy.h"
 
-bool lessThanById(const Company& a, const Company& b)
-{
+bool lessThanById(const Company &a, const Company &b) {
     return a.getId() < b.getId();
 }
 
-bool lessThanByName(const Company& a, const Company& b)
-{
+bool lessThanByName(const Company &a, const Company &b) {
     return a.getName() < b.getName();
 }
 
-int main()
-{
+int main() {
     using namespace std;
 
     vector<string> lines;
     string line;
-    while (getline(cin, line) && line != "end")
-    {
+    while (getline(cin, line) && line != "end") {
         lines.push_back(line);
     }
 
     int numCompanies = lines.size();
-    auto companyPtrs = new Company*[numCompanies];
-    for (int i = 0; i < lines.size(); i++)
-    {
+    auto companyPtrs = new Company *[numCompanies];
+    for (int i = 0; i < lines.size(); i++) {
         string line = lines[i];
 
         istringstream lineIn(line);
@@ -44,17 +39,13 @@ int main()
     string sortKey;
     cin >> sortKey;
 
-    if (sortKey == "name")
-    {
+    if (sortKey == "name") {
         sortBy(companyPtrs, companyPtrs + numCompanies, lessThanByName);
-    }
-    else if (sortKey == "id")
-    {
+    } else if (sortKey == "id") {
         sortBy(companyPtrs, companyPtrs + numCompanies, lessThanById);
     }
 
-    for (int i = 0; i < numCompanies; i++)
-    {
+    for (int i = 0; i < numCompanies; i++) {
         cout << companyPtrs[i]->toString() << endl;
     }
 

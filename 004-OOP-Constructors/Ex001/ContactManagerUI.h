@@ -7,13 +7,12 @@
 #include <algorithm>
 #include <sstream>
 
-class ContactManagerUI
-{
-    std::vector<EmailContact>& contacts;
+class ContactManagerUI {
+    std::vector<EmailContact> &contacts;
     bool running;
 
 public:
-    ContactManagerUI(std::vector<EmailContact>& contacts, bool hintsOn);
+    ContactManagerUI(std::vector<EmailContact> &contacts, bool hintsOn);
 
     void start();
 

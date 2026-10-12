@@ -6,18 +6,15 @@
 #include "Company.h"
 #include "ArrayOfPointers.h"
 
-std::istream& operator>>(std::istream& in, Company& company)
-{
+std::istream &operator>>(std::istream &in, Company &company) {
     return in >> company.id >> company.name;
 }
 
-std::ostream& operator<<(std::ostream& out, const Company& company)
-{
+std::ostream &operator<<(std::ostream &out, const Company &company) {
     return out << company.id << " " << company.name;
 }
 
-Company doRun(std::string inputStr)
-{
+Company doRun(std::string inputStr) {
     std::istringstream in(inputStr);
 
     size_t numCompanies;
@@ -25,8 +22,7 @@ Company doRun(std::string inputStr)
 
     ArrayOfPointers companies;
 
-    for (size_t i = 0; i < numCompanies; i++)
-    {
+    for (size_t i = 0; i < numCompanies; i++) {
         auto c = new Company();
         in >> *c;
 
@@ -37,10 +33,8 @@ Company doRun(std::string inputStr)
     in >> id;
 
     Company result;
-    for (size_t i = 0; i < companies.getSize(); i++)
-    {
-        if (companies.get(i)->getId() == id)
-        {
+    for (size_t i = 0; i < companies.getSize(); i++) {
+        if (companies.get(i)->getId() == id) {
             result = *companies.get(i);
         }
     }
@@ -48,8 +42,7 @@ Company doRun(std::string inputStr)
     return result;
 }
 
-int main()
-{
+int main() {
     size_t numRuns;
     std::cin >> numRuns;
 
@@ -58,20 +51,16 @@ int main()
 
     Company result;
 
-    while (std::getline(std::cin, line) && line != "end")
-    {
+    while (std::getline(std::cin, line) && line != "end") {
         inputBuffer << line << std::endl;
     }
 
     std::string inputStr = inputBuffer.str();
 
-    for (size_t run = 0; run < numRuns; run++)
-    {
+    for (size_t run = 0; run < numRuns; run++) {
         Company newResult = doRun(inputStr);
-        if (run > 0)
-        {
-            if (result.getId() != newResult.getId() || result.getName() != newResult.getName())
-            {
+        if (run > 0) {
+            if (result.getId() != newResult.getId() || result.getName() != newResult.getName()) {
                 std::cout << "wrong result on run " + run << std::endl;
             }
         }

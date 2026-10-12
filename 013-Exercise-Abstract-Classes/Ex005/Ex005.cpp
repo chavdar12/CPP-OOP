@@ -5,8 +5,7 @@
 #include "Initialization.h"
 #include "CommandInterface.h"
 
-int main()
-{
+int main() {
     std::string text;
     std::getline(std::cin, text);
 
@@ -14,8 +13,7 @@ int main()
 
     std::string inputLine;
     std::getline(std::cin, inputLine);
-    while (inputLine != "exit")
-    {
+    while (inputLine != "exit") {
         interface->handleInput(inputLine);
         std::getline(std::cin, inputLine);
     }

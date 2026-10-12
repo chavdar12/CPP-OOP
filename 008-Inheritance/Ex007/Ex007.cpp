@@ -2,15 +2,13 @@
 
 #include "Car.h"
 
-int main()
-{
+int main() {
     constexpr auto startWheelAngle = 0;
     constexpr auto speed = 50;
     Car car(startWheelAngle, speed);
 
     constexpr auto turnAngle = 45;
-    while (!car.hasMadeFullTurn())
-    {
+    while (!car.hasMadeFullTurn()) {
         car.turnWheel(turnAngle);
         std::cout << car.toString() << std::endl;
     }

@@ -7,25 +7,21 @@
 #include "Company.h"
 #include "ParseCompanies.h"
 
-std::string byName(const Company& c)
-{
+std::string byName(const Company &c) {
     return c.getName();
 }
 
-std::string byId(const Company& c)
-{
+std::string byId(const Company &c) {
     std::ostringstream asStringOut;
     asStringOut << c.getId();
     return asStringOut.str();
 }
 
-std::string byNameAndId(const Company& c)
-{
+std::string byNameAndId(const Company &c) {
     return byName(c) + byId(c);
 }
 
-int main()
-{
+int main() {
     std::cin.sync_with_stdio(false);
     std::cout.sync_with_stdio(false);
 
@@ -33,8 +29,7 @@ int main()
 
     std::string line;
     std::getline(std::cin, line);
-    while (line != "end")
-    {
+    while (line != "end") {
         input << line << std::endl;
         std::getline(std::cin, line);
     }
@@ -43,28 +38,20 @@ int main()
     std::cin >> uniquenessCriteria;
 
     int numCompanies;
-    Company* companies;
+    Company *companies;
 
-    if (uniquenessCriteria == 1)
-    {
+    if (uniquenessCriteria == 1) {
         companies = parseUniqueCompanies(input.str(), numCompanies, byId);
-    }
-    else if (uniquenessCriteria == 2)
-    {
+    } else if (uniquenessCriteria == 2) {
         companies = parseUniqueCompanies(input.str(), numCompanies, byName);
-    }
-    else if (uniquenessCriteria == 3)
-    {
+    } else if (uniquenessCriteria == 3) {
         companies = parseUniqueCompanies(input.str(), numCompanies, byNameAndId);
-    }
-    else
-    {
+    } else {
         companies = nullptr;
     }
 
-    Company* companiesEnd = companies + numCompanies;
-    for (Company* c = companies; c < companiesEnd; c++)
-    {
+    Company *companiesEnd = companies + numCompanies;
+    for (Company *c = companies; c < companiesEnd; c++) {
         std::cout << c->toString() << std::endl;
     }
     delete[] companies;

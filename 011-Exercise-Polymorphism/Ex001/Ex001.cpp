@@ -4,15 +4,13 @@
 
 #include "Company.h"
 
-int main()
-{
+int main() {
     std::vector<Company> companies;
 
     int id;
     std::string name;
     std::string line;
-    while (std::getline(std::cin, line) && line != "end")
-    {
+    while (std::getline(std::cin, line) && line != "end") {
         std::istringstream iss(line);
         iss >> name >> id;
         companies.emplace_back(id, name);
@@ -21,28 +19,20 @@ int main()
     std::string sortCriteria;
     std::cin >> sortCriteria;
 
-    if (sortCriteria == "name")
-    {
-        std::sort(companies.begin(), companies.end(), [](const Company& a, const Company& b)
-        {
+    if (sortCriteria == "name") {
+        std::sort(companies.begin(), companies.end(), [](const Company &a, const Company &b) {
             return a.getName() < b.getName();
         });
-    }
-    else if (sortCriteria == "id")
-    {
-        std::sort(companies.begin(), companies.end(), [](const Company& a, const Company& b)
-        {
+    } else if (sortCriteria == "id") {
+        std::sort(companies.begin(), companies.end(), [](const Company &a, const Company &b) {
             return a.getId() < b.getId();
         });
-    }
-    else
-    {
+    } else {
         std::cerr << "Invalid sorting criteria" << std::endl;
         return 1;
     }
 
-    for (Company& company : companies)
-    {
+    for (Company &company: companies) {
         std::cout << company.toString() << std::endl;
     }
 

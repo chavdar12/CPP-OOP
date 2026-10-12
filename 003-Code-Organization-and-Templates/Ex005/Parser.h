@@ -5,25 +5,21 @@
 #include <string>
 #include <sstream>
 
-template <typename T>
-class Parser
-{
+template<typename T>
+class Parser {
 private:
-    std::istream& input;
+    std::istream &input;
     std::string stopLine;
 
 public:
-    Parser(std::istream& input, const std::string& stopLine) : input(input), stopLine(stopLine)
-    {
+    Parser(std::istream &input, const std::string &stopLine) : input(input), stopLine(stopLine) {
     }
 
-    bool readNext(T& value)
-    {
+    bool readNext(T &value) {
         std::string line;
         getline(input, line);
 
-        if (line == stopLine)
-        {
+        if (line == stopLine) {
             return false;
         }
 

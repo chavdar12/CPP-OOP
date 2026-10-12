@@ -6,38 +6,32 @@
 #include <vector>
 #include <utility>
 
-class Company
-{
+class Company {
 private:
     int id;
     std::string name;
 
 public:
-    Company()
-    {
+    Company() {
     }
 
     Company(int id, std::string name)
         : id(id)
-          , name(name)
-    {
+          , name(name) {
     }
 
-    std::string toString()
-    {
+    std::string toString() {
         std::ostringstream stream;
         stream << name << " " << id;
 
         return stream.str();
     }
 
-    std::string getName() const
-    {
+    std::string getName() const {
         return this->name;
     }
 
-    int getId() const
-    {
+    int getId() const {
         return this->id;
     }
 };

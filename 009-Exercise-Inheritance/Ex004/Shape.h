@@ -3,19 +3,16 @@
 
 #include "Vector2D.h"
 
-class Shape
-{
+class Shape {
 protected:
     Vector2D center;
     float area;
 
 public:
-    Shape() : center(0, 0)
-    {
+    Shape() : center(0, 0) {
     }
 
-    Shape(const Vector2D& center) : center(center)
-    {
+    Shape(const Vector2D &center) : center(center) {
     }
 
     const float getArea() const { return this->area; };

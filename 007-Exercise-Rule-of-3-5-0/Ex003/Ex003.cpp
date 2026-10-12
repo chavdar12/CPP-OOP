@@ -6,8 +6,7 @@
 #include "Company.h"
 #include "MakeCompany.h"
 
-std::vector<std::string> readStringsLine()
-{
+std::vector<std::string> readStringsLine() {
     std::vector<std::string> values;
 
     std::string line;
@@ -16,22 +15,19 @@ std::vector<std::string> readStringsLine()
     std::istringstream lineIn(line);
 
     std::string value;
-    while (lineIn >> value)
-    {
+    while (lineIn >> value) {
         values.push_back(value);
     }
 
     return values;
 }
 
-int main()
-{
+int main() {
     std::cin.sync_with_stdio(false);
     std::cout.sync_with_stdio(false);
 
     std::vector<std::string> properties = readStringsLine();
-    while (properties[0] != "end")
-    {
+    while (properties[0] != "end") {
         auto company = makeCompany(properties);
 
         auto copy = company;

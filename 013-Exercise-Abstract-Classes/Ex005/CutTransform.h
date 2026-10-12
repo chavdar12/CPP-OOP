@@ -4,13 +4,11 @@
 #include <cstring>
 #include "TextTransform.h"
 
-class CutTransform : public TextTransform
-{
+class CutTransform : public TextTransform {
     std::string lastCut;
 
 public:
-    void invokeOn(std::string& text, int start, int end) override
-    {
+    void invokeOn(std::string &text, int start, int end) override {
         auto startInr = text.begin() + start;
         auto endInr = text.begin() + end;
 

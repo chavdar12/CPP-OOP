@@ -7,8 +7,7 @@
 #include <memory>
 #include <string>
 
-std::shared_ptr<CommandInterface> buildCommandInterface(std::string& text)
-{
+std::shared_ptr<CommandInterface> buildCommandInterface(std::string &text) {
     auto interface = std::make_shared<AdvancedCommandInterface>(text);
     interface->init();
     return interface;

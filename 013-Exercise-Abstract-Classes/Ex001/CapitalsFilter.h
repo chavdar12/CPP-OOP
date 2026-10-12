@@ -3,11 +3,9 @@
 
 #include "CharSequenceFilter.h"
 
-class CapitalsFilter : public CharSequenceFilter
-{
+class CapitalsFilter : public CharSequenceFilter {
 public:
-    CapitalsFilter() : CharSequenceFilter('A', 'Z')
-    {
+    CapitalsFilter() : CharSequenceFilter('A', 'Z') {
     };
 };
 

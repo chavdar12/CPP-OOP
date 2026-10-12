@@ -3,8 +3,7 @@
 
 #include "Shape.h"
 
-class CoordinateSystemCenter : public Shape
-{
+class CoordinateSystemCenter : public Shape {
 };
 
 #endif // !COORDINATE_SYSTEM_CENTER_H

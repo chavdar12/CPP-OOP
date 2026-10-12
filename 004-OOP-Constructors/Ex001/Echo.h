@@ -6,7 +6,7 @@
 
 extern bool echoOn;
 
-void echo(const std::string& message);
+void echo(const std::string &message);
 
 
 #endif

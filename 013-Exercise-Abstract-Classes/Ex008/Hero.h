@@ -5,15 +5,13 @@
 #include "Defines.h"
 #include "Structs.h"
 
-class Hero
-{
+class Hero {
 public:
     Hero() = delete;
 
-    Hero(const std::string& name,
+    Hero(const std::string &name,
          const int maxMana,
-         const int baseManaRegenRate)
-    {
+         const int baseManaRegenRate) {
         _name = name;
         _maxMana = maxMana;
         _currMana = maxMana;

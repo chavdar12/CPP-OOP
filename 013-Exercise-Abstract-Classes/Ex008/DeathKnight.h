@@ -3,12 +3,11 @@
 
 #include "Hero.h"
 
-class DeathKnight : public Hero
-{
+class DeathKnight : public Hero {
 public:
     DeathKnight() = delete;
 
-    DeathKnight(const std::string& name,
+    DeathKnight(const std::string &name,
                 const int maxMana,
                 const int baseManaRegenRate);
 
@@ -19,8 +18,7 @@ public:
     void regenerateMana() override;
 
 private:
-    void generateSpells() override
-    {
+    void generateSpells() override {
         _spells = {
             {"Death Coil", 75},
             {"Animate Dead", 200}

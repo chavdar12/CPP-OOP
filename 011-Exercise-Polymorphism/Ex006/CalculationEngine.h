@@ -6,49 +6,37 @@
 
 #include "Operation.h"
 
-class CalculationEngine
-{
+class CalculationEngine {
     int result;
     std::shared_ptr<Operation> currentOperation;
 
 public:
-    CalculationEngine() : result(0), currentOperation(nullptr)
-    {
+    CalculationEngine() : result(0), currentOperation(nullptr) {
     }
 
-    void pushNumber(int number)
-    {
-        if (this->currentOperation)
-        {
+    void pushNumber(int number) {
+        if (this->currentOperation) {
             currentOperation->addOperand(number);
 
-            if (currentOperation->isCompleted())
-            {
+            if (currentOperation->isCompleted()) {
                 this->result = currentOperation->getResult();
                 this->currentOperation.reset();
             }
-        }
-        else
-        {
+        } else {
             this->result = number;
         }
     }
 
-    void pushOperation(std::shared_ptr<Operation> operation)
-    {
-        if (operation->isCompleted())
-        {
+    void pushOperation(std::shared_ptr<Operation> operation) {
+        if (operation->isCompleted()) {
             this->pushNumber(operation->getResult());
-        }
-        else
-        {
+        } else {
             this->currentOperation = operation;
             this->pushNumber(this->result);
         }
     }
 
-    int getCurrentResult()
-    {
+    int getCurrentResult() {
         return this->result;
     }
 };

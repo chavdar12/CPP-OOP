@@ -6,32 +6,27 @@
 #include <vector>
 #include <utility>
 
-class Company
-{
+class Company {
 private:
     int id;
     std::string name;
-    std::vector<std::pair<char, char>> employees;
+    std::vector<std::pair<char, char> > employees;
 
 public:
-    Company(int id, std::string name, std::vector<std::pair<char, char>> employees)
+    Company(int id, std::string name, std::vector<std::pair<char, char> > employees)
         : id(id)
           , name(name)
-          , employees(employees)
-    {
+          , employees(employees) {
     }
 
-    std::string toString()
-    {
+    std::string toString() {
         std::ostringstream stream;
         stream << id << " " << name << " ";
 
-        for (int i = 0; i < employees.size(); i++)
-        {
+        for (int i = 0; i < employees.size(); i++) {
             auto initials = employees[i];
             stream << initials.first << initials.second;
-            if (i < employees.size() - 1)
-            {
+            if (i < employees.size() - 1) {
                 stream << " ";
             }
         }

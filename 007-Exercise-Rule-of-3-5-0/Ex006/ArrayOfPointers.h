@@ -5,28 +5,23 @@
 #include <vector>
 #include <memory>
 
-class ArrayOfPointers
-{
+class ArrayOfPointers {
 private:
-    std::vector<std::shared_ptr<Company>> pointers;
+    std::vector<std::shared_ptr<Company> > pointers;
 
 public:
-    ArrayOfPointers()
-    {
+    ArrayOfPointers() {
     }
 
-    void add(Company* c)
-    {
+    void add(Company *c) {
         this->pointers.push_back(std::shared_ptr<Company>(c));
     }
 
-    int getSize() const
-    {
+    int getSize() const {
         return this->pointers.size();
     }
 
-    Company* get(int index) const
-    {
+    Company *get(int index) const {
         return this->pointers.at(index).get();
     }
 };

@@ -3,8 +3,7 @@
 
 #include "CommandExecutor.h"
 
-static FieldConfig parseFieldConfig()
-{
+static FieldConfig parseFieldConfig() {
     int fieldRows = 0;
     int fieldCols = 0;
     int obstaclesCount = 0;
@@ -18,13 +17,12 @@ static FieldConfig parseFieldConfig()
     Point snakeStartPos;
 
     std::cin >> fieldRows >> fieldCols
-        >> snakeStartPos.row >> snakeStartPos.col;
+            >> snakeStartPos.row >> snakeStartPos.col;
 
     std::cin >> obstaclesCount;
     obstacles.reserve(obstaclesCount);
 
-    for (int i = 0; i < obstaclesCount; ++i)
-    {
+    for (int i = 0; i < obstaclesCount; ++i) {
         std::cin >> currRow >> currCol;
         obstacles.emplace_back(currRow, currCol);
     }
@@ -32,8 +30,7 @@ static FieldConfig parseFieldConfig()
     std::cin >> powerUpsCount;
     powerUps.reserve(powerUpsCount);
 
-    for (int i = 0; i < powerUpsCount; ++i)
-    {
+    for (int i = 0; i < powerUpsCount; ++i) {
         std::cin >> currRow >> currCol;
         powerUps.emplace_back(currRow, currCol);
     }
@@ -45,8 +42,7 @@ static FieldConfig parseFieldConfig()
                        powerUps);
 }
 
-int main()
-{
+int main() {
     CommandExecutor commandExecutor(parseFieldConfig());
 
     int commands = 0;
@@ -55,12 +51,10 @@ int main()
     std::cin >> commands;
     std::cin.ignore();
 
-    for (int i = 0; i < commands; ++i)
-    {
+    for (int i = 0; i < commands; ++i) {
         getline(std::cin, input);
 
-        if (commandExecutor.isGameActive())
-        {
+        if (commandExecutor.isGameActive()) {
             commandExecutor.extractCommand(input);
         }
     }

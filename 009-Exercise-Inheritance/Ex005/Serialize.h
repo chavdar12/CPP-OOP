@@ -1,8 +1,7 @@
 #ifndef SERIALIZE_H
 #define SERIALIZE_H
 
-byte* serializeToMemory(std::string s, size_t& bytesWritten)
-{
+byte *serializeToMemory(std::string s, size_t &bytesWritten) {
     std::vector<byte> vB;
 
     byte companies = 0;
@@ -11,21 +10,19 @@ byte* serializeToMemory(std::string s, size_t& bytesWritten)
     std::istringstream iss(s);
     Company company;
 
-    while (iss >> company)
-    {
-        vB.push_back((byte)company.getId());
+    while (iss >> company) {
+        vB.push_back((byte) company.getId());
 
-        for (auto chN : company.getName())
-            vB.push_back((byte)chN);
+        for (auto chN: company.getName())
+            vB.push_back((byte) chN);
 
         vB.push_back(0);
 
-        vB.push_back((byte)company.getEmployees().size());
+        vB.push_back((byte) company.getEmployees().size());
 
-        for (auto empl : company.getEmployees())
-        {
-            vB.push_back((byte)empl.first);
-            vB.push_back((byte)empl.second);
+        for (auto empl: company.getEmployees()) {
+            vB.push_back((byte) empl.first);
+            vB.push_back((byte) empl.second);
         }
 
         ++companies;

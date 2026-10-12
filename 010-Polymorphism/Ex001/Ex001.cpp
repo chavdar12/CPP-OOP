@@ -6,7 +6,8 @@ class Vehicle {
 protected:
     double speed;
 
-    Vehicle(double speed) : speed(speed) {}
+    Vehicle(double speed) : speed(speed) {
+    }
 
 public:
     std::string toString() const {
@@ -19,9 +20,11 @@ public:
 class Airplane : public Vehicle {
     double altitude;
     double heading;
+
 public:
     Airplane(double speed, double altitude, double heading)
-        : Vehicle(speed), altitude(altitude), heading(heading) {}
+        : Vehicle(speed), altitude(altitude), heading(heading) {
+    }
 
     std::string toString() const {
         std::ostringstream stream;
@@ -33,10 +36,11 @@ public:
 int main() {
     Airplane plane(510, 2400, 90);
 
-    Vehicle* v = &plane;
+    Vehicle *v = &plane;
     std::cout << v->toString() << std::endl; // calls Vehicle::toString()
 
-    Airplane* planePtr = static_cast<Airplane*>(v); // converting back from the Vehicle*, to show that there is no slicing
+    Airplane *planePtr = static_cast<Airplane *>(v);
+    // converting back from the Vehicle*, to show that there is no slicing
     std::cout << planePtr->toString() << std::endl; // calls Airplane::toString()
 
     return 0;

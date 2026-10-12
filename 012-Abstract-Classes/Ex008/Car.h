@@ -6,8 +6,7 @@
 
 #include <string>
 
-class Car : public CarInterface
-{
+class Car : public CarInterface {
 public:
     Car(int wheelAngle, double speed);
 

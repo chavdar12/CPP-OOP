@@ -8,15 +8,12 @@
 #include "CutTransform.h"
 #include "PasteTransform.h"
 
-class AdvancedCommandInterface : public CommandInterface
-{
+class AdvancedCommandInterface : public CommandInterface {
 public:
-    AdvancedCommandInterface(std::string& text) : CommandInterface(text)
-    {
+    AdvancedCommandInterface(std::string &text) : CommandInterface(text) {
     }
 
-    std::vector<Command> initCommands() override
-    {
+    std::vector<Command> initCommands() override {
         std::vector<Command> commands = CommandInterface::initCommands();
 
         auto cutTransform = std::make_shared<CutTransform>();

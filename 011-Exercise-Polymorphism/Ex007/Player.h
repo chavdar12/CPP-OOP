@@ -5,19 +5,16 @@
 #include "Defines.h"
 #include "Structs.h"
 
-class Player
-{
+class Player {
 public:
     Player(const int health,
            const int armor,
            const int playerId) : _pistol(nullptr),
                                  _vitalData(health, armor),
-                                 _playerId(playerId)
-    {
+                                 _playerId(playerId) {
     }
 
-    ~Player()
-    {
+    ~Player() {
         delete _pistol;
     }
 
@@ -26,8 +23,7 @@ public:
                    const int clipSize,
                    const int remainingAmmo);
 
-    bool fireAtEnemry(PlayerVitalData& enemyPlayerData)
-    {
+    bool fireAtEnemry(PlayerVitalData &enemyPlayerData) {
         std::cout << "PlayerID " << _playerId << " turn:\n";
 
         const bool result = _pistol->fire(enemyPlayerData);
@@ -37,13 +33,12 @@ public:
         return result;
     }
 
-    PlayerVitalData& getVitalData()
-    {
+    PlayerVitalData &getVitalData() {
         return _vitalData;
     }
 
 private:
-    Pistol* _pistol;
+    Pistol *_pistol;
 
     PlayerVitalData _vitalData;
 

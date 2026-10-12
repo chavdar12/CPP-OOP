@@ -1,12 +1,10 @@
 #ifndef STRUCTS_H_
 #define STRUCTS_H_
 
-struct PlayerVitalData
-{
+struct PlayerVitalData {
     PlayerVitalData(const int inputHealth,
                     const int inputArmor) : health(inputHealth),
-                                            armor(inputArmor)
-    {
+                                            armor(inputArmor) {
     }
 
     int health;

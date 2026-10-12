@@ -4,44 +4,44 @@
 #include <sstream>
 #include <vector>
 
-class HasId
-{
+class HasId {
 public:
     virtual int getId() const = 0;
 
-    virtual ~HasId()
-    {
+    virtual ~HasId() {
     };
 };
 
-class HasInfo
-{
+class HasInfo {
 public:
     virtual std::string getInfo() const = 0;
 
-    virtual ~HasInfo()
-    {
+    virtual ~HasInfo() {
     };
 };
 
-class Company : public HasId, public HasInfo
-{
+class Company : public HasId, public HasInfo {
 protected:
     int id;
     std::string name;
-    std::vector<std::pair<char, char>> employees;
+    std::vector<std::pair<char, char> > employees;
 
 public:
     Company();
-    Company(int id, std::string name, std::vector<std::pair<char, char>> employees);
+
+    Company(int id, std::string name, std::vector<std::pair<char, char> > employees);
 
     int getId() const override;
+
     std::string getName() const;
-    std::vector<std::pair<char, char>> getEmployees() const;
+
+    std::vector<std::pair<char, char> > getEmployees() const;
+
     std::string getInfo() const override;
 
-    friend std::ostream& operator<<(std::ostream& stream, const Company& c);
-    friend std::istream& operator>>(std::istream& stream, Company& c);
+    friend std::ostream &operator<<(std::ostream &stream, const Company &c);
+
+    friend std::istream &operator>>(std::istream &stream, Company &c);
 };
 
 #endif

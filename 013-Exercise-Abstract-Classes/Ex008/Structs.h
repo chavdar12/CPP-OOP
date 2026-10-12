@@ -3,11 +3,9 @@
 
 #include <string>
 
-struct Spell
-{
-    Spell(const std::string& inputName,
-          const int inputManaCost)
-    {
+struct Spell {
+    Spell(const std::string &inputName,
+          const int inputManaCost) {
         name = inputName;
         manaCost = inputManaCost;
     }

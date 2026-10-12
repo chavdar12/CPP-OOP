@@ -5,10 +5,9 @@
 
 class Car;
 
-class Wheel
-{
+class Wheel {
 public:
-    Wheel(int angle, Car* car);
+    Wheel(int angle, Car *car);
 
     void turn(int angle);
 
@@ -16,7 +15,7 @@ public:
 
 private:
     int _angle;
-    Car* _car;
+    Car *_car;
 };
 
 #endif /* WHEEL_H_ */

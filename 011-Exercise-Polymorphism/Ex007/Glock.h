@@ -3,8 +3,7 @@
 
 #include "Pistol.h"
 
-class Glock : public Pistol
-{
+class Glock : public Pistol {
 public:
     Glock(const int damagePerRound,
           const int clipSize,
@@ -12,11 +11,10 @@ public:
 
     ~Glock() override = default;
 
-    bool fire(PlayerVitalData& enemyPlayerData) override;
+    bool fire(PlayerVitalData &enemyPlayerData) override;
 
 private:
-    enum InternalDefines
-    {
+    enum InternalDefines {
         ROUNDS_PER_FIRE = 3
     };
 };

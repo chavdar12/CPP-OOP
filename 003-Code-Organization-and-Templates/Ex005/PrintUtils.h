@@ -3,11 +3,9 @@
 
 #include <iostream>
 
-template <typename Template>
-void printContainer(typename Template::iterator begin, typename Template::iterator end)
-{
-    while (begin != end)
-    {
+template<typename Template>
+void printContainer(typename Template::iterator begin, typename Template::iterator end) {
+    while (begin != end) {
         std::cout << *begin << " ";
         ++begin;
     }

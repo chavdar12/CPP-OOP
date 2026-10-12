@@ -8,42 +8,34 @@
 #include "FileSystemObject.h"
 #include "FileSystemObjectsContainer.h"
 
-class Directory : public FileSystemObject, public FileSystemObjectsContainer
-{
-    std::vector<std::shared_ptr<FileSystemObject>> nestedObj;
+class Directory : public FileSystemObject, public FileSystemObjectsContainer {
+    std::vector<std::shared_ptr<FileSystemObject> > nestedObj;
 
 public:
-    Directory(std::string name) : FileSystemObject(name)
-    {
+    Directory(std::string name) : FileSystemObject(name) {
     }
 
-    size_t getSize() const override
-    {
+    size_t getSize() const override {
         size_t size = 0;
-        for (auto objPtr : nestedObj)
-        {
+        for (auto objPtr: nestedObj) {
             size += objPtr->getSize();
         }
         return size;
     }
 
-    void add(const std::shared_ptr<FileSystemObject>& obj) override
-    {
+    void add(const std::shared_ptr<FileSystemObject> &obj) override {
         nestedObj.push_back(obj);
     }
 
-    void remove(std::shared_ptr<FileSystemObject> obj) override
-    {
+    void remove(std::shared_ptr<FileSystemObject> obj) override {
         this->nestedObj.erase(std::find(this->nestedObj.begin(), this->nestedObj.end(), obj));
     }
 
-    std::vector<std::shared_ptr<FileSystemObject>>::const_iterator begin() const override
-    {
+    std::vector<std::shared_ptr<FileSystemObject> >::const_iterator begin() const override {
         return nestedObj.begin();
     }
 
-    std::vector<std::shared_ptr<FileSystemObject>>::const_iterator end() const override
-    {
+    std::vector<std::shared_ptr<FileSystemObject> >::const_iterator end() const override {
         return nestedObj.end();
     }
 };

@@ -6,25 +6,16 @@
 #include "CapitalsFilter.h"
 #include "NonCapitalsFilter.h"
 
-class FilterFactory
-{
+class FilterFactory {
 public:
-    Filter* buildFilter(std::string filerDefinition) const
-    {
-        if (filerDefinition == "A-Z")
-        {
+    Filter *buildFilter(std::string filerDefinition) const {
+        if (filerDefinition == "A-Z") {
             return new CapitalsFilter();
-        }
-        else if (filerDefinition == "a-z")
-        {
+        } else if (filerDefinition == "a-z") {
             return new NonCapitalsFilter();
-        }
-        else if (filerDefinition == "0-9")
-        {
+        } else if (filerDefinition == "0-9") {
             return new DigitsFilter();
-        }
-        else
-        {
+        } else {
             return nullptr;
         }
     }

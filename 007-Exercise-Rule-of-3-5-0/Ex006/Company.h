@@ -7,35 +7,31 @@
 #include <vector>
 #include <utility>
 
-class Company
-{
+class Company {
 private:
     int id;
     std::string name;
 
 public:
-    Company()
-    {
+    Company() {
     }
 
     Company(int id, std::string name)
         : id(id)
-          , name(name)
-    {
+          , name(name) {
     }
 
-    int getId() const
-    {
+    int getId() const {
         return this->id;
     }
 
-    std::string getName() const
-    {
+    std::string getName() const {
         return this->name;
     }
 
-    friend std::istream& operator>>(std::istream& in, Company& company);
-    friend std::ostream& operator<<(std::ostream& out, const Company& company);
+    friend std::istream &operator>>(std::istream &in, Company &company);
+
+    friend std::ostream &operator<<(std::ostream &out, const Company &company);
 };
 
 #endif // !COMPANY_H

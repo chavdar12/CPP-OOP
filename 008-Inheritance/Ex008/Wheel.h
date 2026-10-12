@@ -4,10 +4,9 @@
 #include <string>
 #include <functional>
 
-class Wheel
-{
+class Wheel {
 public:
-    Wheel(int angle, const std::function<void(bool)>& onFullTurn);
+    Wheel(int angle, const std::function<void(bool)> &onFullTurn);
 
     void turn(int angle);
 

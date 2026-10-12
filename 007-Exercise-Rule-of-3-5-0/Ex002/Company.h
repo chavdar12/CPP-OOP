@@ -6,8 +6,7 @@
 #include <vector>
 #include <utility>
 
-class Company
-{
+class Company {
 private:
     int id;
     std::string name;
@@ -15,17 +14,14 @@ private:
 public:
     Company(int id, std::string name)
         : id(id)
-          , name(name)
-    {
+          , name(name) {
     }
 
-    int getId() const
-    {
+    int getId() const {
         return this->id;
     }
 
-    std::string toString() const
-    {
+    std::string toString() const {
         std::ostringstream stream;
         stream << id << " " << name << " ";
         return stream.str();

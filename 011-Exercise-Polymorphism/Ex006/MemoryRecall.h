@@ -7,25 +7,20 @@
 #include "Operation.h"
 #include "MemorySave.h"
 
-class MemoryRecallOperation : public Operation
-{
+class MemoryRecallOperation : public Operation {
 public:
-    MemoryRecallOperation(const std::shared_ptr<MemorySaveOperation>& memorySave) : mMemorySave(memorySave)
-    {
+    MemoryRecallOperation(const std::shared_ptr<MemorySaveOperation> &memorySave) : mMemorySave(memorySave) {
     }
 
-    void addOperand(int operand) override
-    {
+    void addOperand(int operand) override {
         std::cout << "MemoryRecallOperation::addOperand() should not be envoked!\n";
     }
 
-    bool isCompleted() override
-    {
+    bool isCompleted() override {
         return true;
     }
 
-    int getResult() override
-    {
+    int getResult() override {
         return mMemorySave->getResult();
     }
 

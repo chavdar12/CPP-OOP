@@ -5,10 +5,9 @@
 
 class CarInterface;
 
-class Wheel
-{
+class Wheel {
 public:
-    Wheel(int angle, CarInterface* carInterface);
+    Wheel(int angle, CarInterface *carInterface);
 
     void turn(int angle);
 
@@ -16,7 +15,7 @@ public:
 
 private:
     int _angle;
-    CarInterface* _carInterface;
+    CarInterface *_carInterface;
 };
 
 #endif /* WHEEL_H_ */

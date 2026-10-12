@@ -1,8 +1,7 @@
 #ifndef CARINTERFACE_H_
 #define CARINTERFACE_H_
 
-class CarInterface
-{
+class CarInterface {
 public:
     virtual ~CarInterface() = default;
 

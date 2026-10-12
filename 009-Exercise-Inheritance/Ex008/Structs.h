@@ -3,25 +3,20 @@
 
 #include <vector>
 
-struct Point
-{
+struct Point {
     Point(const int inputRow,
           const int inputCol) : row(inputRow),
-                                col(inputCol)
-    {
+                                col(inputCol) {
     }
 
-    Point() : row(0), col(0)
-    {
+    Point() : row(0), col(0) {
     }
 
-    bool operator==(const Point& other) const
-    {
+    bool operator==(const Point &other) const {
         return (row == other.row) && (col == other.col);
     }
 
-    bool operator!=(const Point& other) const
-    {
+    bool operator!=(const Point &other) const {
         return !operator==(other);
     }
 
@@ -29,19 +24,16 @@ struct Point
     int col;
 };
 
-struct FieldConfig
-{
+struct FieldConfig {
     FieldConfig(const int inputRowsCount,
                 const int inputColsCount,
-                const Point& inputSnakeStartPos,
-                const std::vector<Point>& inputObstacles,
-                const std::vector<Point>& inputPowerUps) :
-        rowsCount(inputRowsCount),
-        colsCount(inputColsCount),
-        snakeStartPos(inputSnakeStartPos),
-        obstacles(inputObstacles),
-        powerUps(inputPowerUps)
-    {
+                const Point &inputSnakeStartPos,
+                const std::vector<Point> &inputObstacles,
+                const std::vector<Point> &inputPowerUps) : rowsCount(inputRowsCount),
+                                                           colsCount(inputColsCount),
+                                                           snakeStartPos(inputSnakeStartPos),
+                                                           obstacles(inputObstacles),
+                                                           powerUps(inputPowerUps) {
     }
 
     const int rowsCount;

@@ -3,8 +3,7 @@
 
 #include "Pistol.h"
 
-class DesertEagle : public Pistol
-{
+class DesertEagle : public Pistol {
 public:
     DesertEagle(const int damagePerRound,
                 const int clipSize,
@@ -12,7 +11,7 @@ public:
 
     ~DesertEagle() override = default;
 
-    bool fire(PlayerVitalData& enemyPlayerData) override;
+    bool fire(PlayerVitalData &enemyPlayerData) override;
 };
 
 #endif /* DESERTEAGLE_H_ */

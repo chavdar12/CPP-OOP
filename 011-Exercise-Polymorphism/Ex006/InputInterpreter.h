@@ -8,35 +8,27 @@
 #include "CalculationEngine.h"
 #include "MultiplicationOperation.h"
 
-class InputInterpreter
-{
-    CalculationEngine& engine;
+class InputInterpreter {
+    CalculationEngine &engine;
 
 public:
-    InputInterpreter(CalculationEngine& engine) : engine(engine)
-    {
+    InputInterpreter(CalculationEngine &engine) : engine(engine) {
     }
 
-    bool interpret(std::string input)
-    {
+    bool interpret(std::string input) {
         std::istringstream numberParseStream(input);
         int number;
-        if (numberParseStream >> number)
-        {
+        if (numberParseStream >> number) {
             engine.pushNumber(number);
-        }
-        else
-        {
+        } else {
             engine.pushOperation(this->getOperation(input));
         }
 
         return true;
     }
 
-    virtual std::shared_ptr<Operation> getOperation(std::string operation)
-    {
-        if (operation == "*")
-        {
+    virtual std::shared_ptr<Operation> getOperation(std::string operation) {
+        if (operation == "*") {
             return std::make_shared<MultiplicationOperation>();
         }
 

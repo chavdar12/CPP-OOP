@@ -6,18 +6,15 @@
 #include "Company.h"
 #include "Register.h"
 
-std::istream& operator>>(std::istream& in, Company& company)
-{
+std::istream &operator>>(std::istream &in, Company &company) {
     return in >> company.id >> company.name;
 }
 
-std::ostream& operator<<(std::ostream& out, const Company& company)
-{
+std::ostream &operator<<(std::ostream &out, const Company &company) {
     return out << company.id << " " << company.name;
 }
 
-int main()
-{
+int main() {
     size_t numRuns;
     std::cin >> numRuns;
 
@@ -26,15 +23,13 @@ int main()
 
     Company result;
 
-    while (std::getline(std::cin, line) && line != "end")
-    {
+    while (std::getline(std::cin, line) && line != "end") {
         inputBuffer << line << std::endl;
     }
 
     std::string inputStr = inputBuffer.str();
 
-    for (size_t run = 0; run < numRuns; run++)
-    {
+    for (size_t run = 0; run < numRuns; run++) {
         std::istringstream input(inputStr);
 
         size_t numCompanies;
@@ -43,8 +38,7 @@ int main()
 
         Register companyRegister(numCompanies);
 
-        for (size_t i = 0; i < numCompanies; i++)
-        {
+        for (size_t i = 0; i < numCompanies; i++) {
             Company c;
             input >> c;
 
@@ -55,10 +49,8 @@ int main()
         input >> id;
 
         Company newResult = companyRegister.get(id);
-        if (run > 0)
-        {
-            if (result.getId() != newResult.getId() || result.getName() != newResult.getName())
-            {
+        if (run > 0) {
+            if (result.getId() != newResult.getId() || result.getName() != newResult.getName()) {
                 std::cout << "wrong result on run " + run << std::endl;
             }
         }

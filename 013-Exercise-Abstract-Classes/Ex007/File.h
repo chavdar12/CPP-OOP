@@ -7,13 +7,11 @@
 #include "ByteContainer.h"
 #include "FileSystemObject.h"
 
-class File : public ByteContainer, public FileSystemObject
-{
+class File : public ByteContainer, public FileSystemObject {
     std::string bytes;
 
 public:
-    File(std::string name, std::string bytes) : FileSystemObject(name), bytes(bytes)
-    {
+    File(std::string name, std::string bytes) : FileSystemObject(name), bytes(bytes) {
     }
 
     std::string getBytes() const override { return bytes; };

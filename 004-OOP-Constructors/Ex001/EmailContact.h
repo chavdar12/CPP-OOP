@@ -4,8 +4,7 @@
 #include <string>
 #include <ostream>
 
-class EmailContact
-{
+class EmailContact {
     std::string name;
     std::string email;
 
@@ -19,6 +18,6 @@ public:
     std::string getEmail() const;
 };
 
-std::ostream& operator<<(std::ostream& out, const EmailContact& e);
+std::ostream &operator<<(std::ostream &out, const EmailContact &e);
 
 #endif // !EMAIL_CONTACT_H

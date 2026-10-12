@@ -3,7 +3,6 @@
 #include<sstream>
 
 namespace Organisms {
-
     using std::string;
     using std::ostringstream;
 
@@ -12,12 +11,11 @@ namespace Organisms {
         bool eatsPlants;
         bool eatsAnimals;
         double weight;
-    public:
 
-        Organism(double weight, bool eatsPlants, bool eatsAnimals) :
-            eatsPlants(eatsPlants),
-            eatsAnimals(eatsAnimals),
-            weight(weight) {
+    public:
+        Organism(double weight, bool eatsPlants, bool eatsAnimals) : eatsPlants(eatsPlants),
+                                                                     eatsAnimals(eatsAnimals),
+                                                                     weight(weight) {
         }
 
         virtual string getInfo() const {
@@ -25,29 +23,27 @@ namespace Organisms {
             stream << "weight: " << this->weight << " ";
             if (this->eatsAnimals && this->eatsPlants) {
                 stream << "(omnivore)";
-            }
-            else if (this->eatsAnimals) {
+            } else if (this->eatsAnimals) {
                 stream << "(carnivore)";
-            }
-            else if (this->eatsPlants) {
+            } else if (this->eatsPlants) {
                 stream << "(herbivore)";
-            }
-            else {
+            } else {
                 stream << "(plant)";
             }
 
             return stream.str();
         }
 
-        virtual ~Organism() {}
+        virtual ~Organism() {
+        }
     };
 
     class Sheep : public Organism {
     public:
         bool isBlack;
-        Sheep(bool isBlack, double weight) :
-            Organism(weight, true, false),
-            isBlack(isBlack) {
+
+        Sheep(bool isBlack, double weight) : Organism(weight, true, false),
+                                             isBlack(isBlack) {
         }
 
         string getInfo() const {
@@ -59,10 +55,10 @@ namespace Organisms {
 
     class Spider : public Organism {
         int numLegs;
+
     public:
-        Spider(int numLegs, double weight) :
-            Organism(weight, false, true),
-            numLegs(numLegs) {
+        Spider(int numLegs, double weight) : Organism(weight, false, true),
+                                             numLegs(numLegs) {
         }
 
         string getInfo() const {
@@ -78,7 +74,7 @@ int main() {
     using std::endl;
     using namespace Organisms;
 
-    typedef Organism * OrganismPtr;
+    typedef Organism *OrganismPtr;
 
     // create a normal array of pointers to Organism objects (Oranism*) and fill it with objects of derived classes
     OrganismPtr organismsArr[3]{

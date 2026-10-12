@@ -4,21 +4,17 @@
 #include <stack>
 #include "Operation.h"
 
-class MemorySaveOperation : public Operation
-{
+class MemorySaveOperation : public Operation {
 public:
-    void addOperand(int operand) override
-    {
+    void addOperand(int operand) override {
         this->mOperands.push(operand);
     }
 
-    bool isCompleted() override
-    {
+    bool isCompleted() override {
         return false;
     }
 
-    int getResult() override
-    {
+    int getResult() override {
         const int result = mOperands.top();
         mOperands.pop();
         return result;

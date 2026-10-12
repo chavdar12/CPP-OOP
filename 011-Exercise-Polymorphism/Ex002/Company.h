@@ -10,47 +10,40 @@
 
 using byte = unsigned char;
 
-class Company
-{
+class Company {
 private:
     std::string name;
-    std::vector<std::pair<char, char>> employees;
+    std::vector<std::pair<char, char> > employees;
 
 public:
-    Company()
-    {
+    Company() {
     }
 
-    Company(std::string name, std::vector<std::pair<char, char>> employees)
+    Company(std::string name, std::vector<std::pair<char, char> > employees)
         : name(name)
-          , employees(employees)
-    {
+          , employees(employees) {
     }
 
-    std::string getName() const
-    {
+    std::string getName() const {
         return this->name;
     }
 
-    std::vector<std::pair<char, char>> getEmployees() const
-    {
+    std::vector<std::pair<char, char> > getEmployees() const {
         return this->employees;
     }
 
-    friend std::ostream& operator<<(std::ostream& stream, const Company& c);
-    friend std::istream& operator>>(std::istream& stream, Company& c);
+    friend std::ostream &operator<<(std::ostream &stream, const Company &c);
+
+    friend std::istream &operator>>(std::istream &stream, Company &c);
 };
 
-std::ostream& operator<<(std::ostream& stream, const Company& c)
-{
+std::ostream &operator<<(std::ostream &stream, const Company &c) {
     stream << c.name << " (";
 
-    for (int i = 0; i < c.employees.size(); i++)
-    {
+    for (int i = 0; i < c.employees.size(); i++) {
         auto initials = c.employees[i];
         stream << initials.first << "." << initials.second << ".";
-        if (i < c.employees.size() - 1)
-        {
+        if (i < c.employees.size() - 1) {
             stream << ",";
         }
     }
@@ -60,28 +53,23 @@ std::ostream& operator<<(std::ostream& stream, const Company& c)
     return stream;
 }
 
-std::istream& operator>>(std::istream& stream, Company& c)
-{
-    if (!stream)
-    {
+std::istream &operator>>(std::istream &stream, Company &c) {
+    if (!stream) {
         // couldn't start the read, return the stream in its current error state without attempting further reads
         return stream;
     }
 
     stream >> c.name;
 
-    std::vector<std::pair<char, char>> employees;
+    std::vector<std::pair<char, char> > employees;
     char current;
     stream >> current; //read the '('
 
-    while (current != ')')
-    {
+    while (current != ')') {
         char firstInitial, secondInitial;
         stream >> current;
-        if (current == ')')
-        {
-            if (!employees.empty())
-            {
+        if (current == ')') {
+            if (!employees.empty()) {
                 // sanity check
                 throw std::exception();
             }
@@ -90,8 +78,7 @@ std::istream& operator>>(std::istream& stream, Company& c)
         firstInitial = current;
 
         stream >> current; // read the '.'
-        if (current != '.')
-        {
+        if (current != '.') {
             // sanity check
             throw std::exception();
         }
@@ -100,15 +87,13 @@ std::istream& operator>>(std::istream& stream, Company& c)
         secondInitial = current;
 
         stream >> current; // read the '.'
-        if (current != '.')
-        {
+        if (current != '.') {
             // sanity check
             throw std::exception();
         }
 
         stream >> current; // read the ',' or if the input is ending - the ')'
-        if (current != ',' && current != ')')
-        {
+        if (current != ',' && current != ')') {
             // sanity check
             throw std::exception();
         }

@@ -9,15 +9,13 @@
 
 #include "ProfitReport.h"
 
-int main()
-{
+int main() {
     using namespace std;
 
     vector<Company> companies;
 
     string line;
-    while (getline(cin, line) && line != "end")
-    {
+    while (getline(cin, line) && line != "end") {
         istringstream lineIn(line);
 
         Company c;
@@ -27,8 +25,7 @@ int main()
 
     map<int, ProfitCalculator> profitCalculatorsByCompany;
     line = "";
-    while (getline(cin, line) && line != "end")
-    {
+    while (getline(cin, line) && line != "end") {
         istringstream lineIn(line);
 
         int companyId;
@@ -39,8 +36,8 @@ int main()
         profitCalculatorsByCompany[companyId] = calculator;
     }
 
-    Company* fromInclusive = &companies[0];
-    Company* toInclusive = &companies[companies.size() - 1];
+    Company *fromInclusive = &companies[0];
+    Company *toInclusive = &companies[companies.size() - 1];
 
     cout << getProfitReport(fromInclusive, toInclusive, profitCalculatorsByCompany) << endl;
 

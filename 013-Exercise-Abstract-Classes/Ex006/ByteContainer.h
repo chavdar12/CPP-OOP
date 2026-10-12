@@ -3,13 +3,11 @@
 
 #include <string>
 
-class ByteContainer
-{
+class ByteContainer {
 public:
     virtual std::string getBytes() const = 0;
 
-    virtual ~ByteContainer()
-    {
+    virtual ~ByteContainer() {
     }
 };
 

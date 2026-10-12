@@ -8,16 +8,14 @@ using namespace std;
 #include "EmailContact.h"
 #include "ContactManagerUI.h"
 
-int main()
-{
+int main() {
     echoOn = true;
 
     echo("=== Contact Manager (C) Deluxe Edition ===");
 
     echo("Hints on? (y/n): ");
     char enableHintsInput = ' ';
-    while (enableHintsInput != 'y' && enableHintsInput != 'n')
-    {
+    while (enableHintsInput != 'y' && enableHintsInput != 'n') {
         std::cin >> enableHintsInput;
         enableHintsInput = tolower(enableHintsInput);
     }

@@ -3,10 +3,9 @@
 
 #include <string>
 
-class TextTransform
-{
+class TextTransform {
 public:
-    virtual void invokeOn(std::string& text, int startIndex, int endIndex) = 0;
+    virtual void invokeOn(std::string &text, int startIndex, int endIndex) = 0;
 
     virtual ~TextTransform() = default;
 };

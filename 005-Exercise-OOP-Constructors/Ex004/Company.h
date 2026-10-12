@@ -4,47 +4,40 @@
 #include <string>
 #include <istream>
 
-class Company
-{
+class Company {
     std::string name;
     int id;
     int revenue;
     int costs;
 
 public:
-    std::string getName() const
-    {
+    std::string getName() const {
         return this->name;
     }
 
-    int getId() const
-    {
+    int getId() const {
         return this->id;
     }
 
-    int getRevenue() const
-    {
+    int getRevenue() const {
         return this->revenue;
     }
 
-    int getCosts() const
-    {
+    int getCosts() const {
         return this->costs;
     }
 
-    friend std::istream& operator>>(std::istream& stream, Company& company);
+    friend std::istream &operator>>(std::istream &stream, Company &company);
 };
 
-std::istream& operator>>(std::istream& stream, Company& company)
-{
+std::istream &operator>>(std::istream &stream, Company &company) {
     char separator;
     return stream >> company.name >> company.id >> separator >> company.revenue >> company.costs;
 }
 
-std::ostream& operator<<(std::ostream& stream, const Company& company)
-{
+std::ostream &operator<<(std::ostream &stream, const Company &company) {
     return stream << company.getName() << " " << company.getId() << " : " << company.getRevenue() << " " << company.
-        getCosts();
+           getCosts();
 }
 
 #endif // !COMPANY_H

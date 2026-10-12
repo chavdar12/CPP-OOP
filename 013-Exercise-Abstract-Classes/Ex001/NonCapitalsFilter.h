@@ -3,11 +3,9 @@
 
 #include "CharSequenceFilter.h"
 
-class NonCapitalsFilter : public CharSequenceFilter
-{
+class NonCapitalsFilter : public CharSequenceFilter {
 public:
-    NonCapitalsFilter() : CharSequenceFilter('a', 'z')
-    {
+    NonCapitalsFilter() : CharSequenceFilter('a', 'z') {
     };
 };
 

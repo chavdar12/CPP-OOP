@@ -10,17 +10,14 @@ hear the rime of the ancient mariner see his eyes as he stops one of
 #include <string>
 #include <algorithm>
 
-const std::string minBy(const std::vector<std::string>& values,
-                        bool (*lessFunction)(const std::string& a, const std::string& b))
-{
+const std::string minBy(const std::vector<std::string> &values,
+                        bool (*lessFunction)(const std::string &a, const std::string &b)) {
     //std::sort(values.begin(), values.end(), lessFunction); doesn't not find the first largest/.../...;
 
     int index = 1;
     std::string found = values[0];
-    for (; index < values.size(); index++)
-    {
-        if (lessFunction(values[index], found))
-        {
+    for (; index < values.size(); index++) {
+        if (lessFunction(values[index], found)) {
             found = values[index];
         }
     }

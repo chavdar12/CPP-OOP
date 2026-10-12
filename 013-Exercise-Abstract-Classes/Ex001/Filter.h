@@ -4,8 +4,7 @@
 #include <string>
 #include <sstream>
 
-class Filter
-{
+class Filter {
 private:
     std::ostringstream filtered;
 
@@ -13,19 +12,15 @@ protected:
     virtual bool shouldFilterOut(char symbol) const = 0;
 
 public:
-    void append(std::string s)
-    {
-        for (char symbol : s)
-        {
-            if (!shouldFilterOut(symbol))
-            {
+    void append(std::string s) {
+        for (char symbol: s) {
+            if (!shouldFilterOut(symbol)) {
                 filtered << symbol;
             }
         }
     }
 
-    std::string extract()
-    {
+    std::string extract() {
         std::string filteredStr = filtered.str();
 
         filtered.str("");
@@ -34,8 +29,7 @@ public:
         return filteredStr;
     }
 
-    virtual ~Filter()
-    {
+    virtual ~Filter() {
     }
 };
 

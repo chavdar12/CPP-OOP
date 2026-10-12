@@ -3,12 +3,11 @@
 
 #include "Hero.h"
 
-class DrawRanger : public Hero
-{
+class DrawRanger : public Hero {
 public:
     DrawRanger() = delete;
 
-    DrawRanger(const std::string& name,
+    DrawRanger(const std::string &name,
                const int maxMana,
                const int baseManaRegenRate);
 
@@ -19,8 +18,7 @@ public:
     void regenerateMana() override;
 
 private:
-    void generateSpells() override
-    {
+    void generateSpells() override {
         _spells = {
             {"Silence", 90},
             {"Charm", 150}

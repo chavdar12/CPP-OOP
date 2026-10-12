@@ -2,35 +2,28 @@
 
 #include "Sequence.h"
 
-class IntegersGenerator
-{
+class IntegersGenerator {
     int last;
 
 public:
-    IntegersGenerator() : last(0)
-    {
+    IntegersGenerator() : last(0) {
     }
 
-    int operator()()
-    {
+    int operator()() {
         return this->last++;
     }
 };
 
-class FibonacciGenerator
-{
+class FibonacciGenerator {
     int last;
     int current;
 
 public:
-    FibonacciGenerator() : last(0), current(0)
-    {
+    FibonacciGenerator() : last(0), current(0) {
     }
 
-    int operator()()
-    {
-        if (this->current == 0 && this->last == 0)
-        {
+    int operator()() {
+        if (this->current == 0 && this->last == 0) {
             this->last = 1;
             return 0;
         }
@@ -43,33 +36,27 @@ public:
     }
 };
 
-template <typename T, typename Generator>
-void readGenerateWrite()
-{
+template<typename T, typename Generator>
+void readGenerateWrite() {
     Sequence<T, Generator> sequence;
 
     int numToGenerate;
     std::cin >> numToGenerate;
     sequence.generateNext(numToGenerate);
 
-    for (T element : sequence)
-    {
+    for (T element: sequence) {
         std::cout << element << " ";
         std::cin >> numToGenerate;
         sequence.generateNext(numToGenerate);
     }
 }
 
-int main()
-{
+int main() {
     char generatorType;
     std::cin >> generatorType;
-    if (generatorType == 'i')
-    {
+    if (generatorType == 'i') {
         readGenerateWrite<int, IntegersGenerator>();
-    }
-    else if (generatorType == 'f')
-    {
+    } else if (generatorType == 'f') {
         readGenerateWrite<int, FibonacciGenerator>();
     }
 

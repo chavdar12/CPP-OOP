@@ -7,20 +7,15 @@
 
 #include "Extensions.h"
 
-int main()
-{
+int main() {
     std::string input;
 
     CalculationEngine engine;
     std::shared_ptr<InputInterpreter> interpreter = buildInterpreter(engine);
-    while (std::cin >> input)
-    {
-        if (input == "end")
-        {
+    while (std::cin >> input) {
+        if (input == "end") {
             break;
-        }
-        else
-        {
+        } else {
             interpreter->interpret(input);
         }
     }

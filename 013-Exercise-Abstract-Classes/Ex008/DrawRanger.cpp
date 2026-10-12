@@ -2,38 +2,30 @@
 
 #include <iostream>
 
-DrawRanger::DrawRanger(const std::string& name,
+DrawRanger::DrawRanger(const std::string &name,
                        const int maxMana,
                        const int baseManaRegenRate)
-    : Hero(name, maxMana, baseManaRegenRate)
-{
+    : Hero(name, maxMana, baseManaRegenRate) {
 }
 
-void DrawRanger::castSpell(const SpellType spell)
-{
-    if (_currMana < _spells[spell].manaCost)
-    {
+void DrawRanger::castSpell(const SpellType spell) {
+    if (_currMana<_spells[spell].manaCost) {
         std::cout << _name << " - not enough mana to cast " << _spells[spell].name << '\n';
-    }
-    else
-    {
+    } else {
         _currMana -= _spells[spell].manaCost;
         std::cout << _name << " casted " << _spells[spell].name << " for " <<
-            _spells[spell].manaCost << " mana" << '\n';
+                _spells[spell].manaCost << " mana" << '\n';
 
-        if (SpellType::BASIC == spell)
-        {
+        if (SpellType::BASIC == spell) {
             std::cout << _name << " casted " << _spells[BASIC].name << " for 0 mana" << '\n';
         }
     }
 }
 
-void DrawRanger::regenerateMana()
-{
+void DrawRanger::regenerateMana() {
     _currMana += _manaRegenRate;
 
-    if (_currMana > _maxMana)
-    {
+    if (_currMana > _maxMana) {
         _currMana = _maxMana;
     }
 }

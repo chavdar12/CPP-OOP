@@ -1,17 +1,14 @@
 #ifndef NOTE_NAME_H
 #define NOTE_NAME_H
 
-class NoteName
-{
+class NoteName {
     char englishName;
 
 public:
-    NoteName(char englishName) : englishName(englishName)
-    {
+    NoteName(char englishName) : englishName(englishName) {
     }
 
-    operator char() const
-    {
+    operator char() const {
         return this->englishName;
     }
 };

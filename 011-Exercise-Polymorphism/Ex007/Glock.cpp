@@ -4,18 +4,14 @@
 
 Glock::Glock(const int damagePerRound,
              const int clipSize,
-             const int remainingAmmo) : Pistol(damagePerRound, clipSize, remainingAmmo)
-{
+             const int remainingAmmo) : Pistol(damagePerRound, clipSize, remainingAmmo) {
 }
 
-bool Glock::fire(PlayerVitalData& enemyPlayerData)
-{
-    auto& [health, armor] = enemyPlayerData;
+bool Glock::fire(PlayerVitalData &enemyPlayerData) {
+    auto &[health, armor] = enemyPlayerData;
 
-    for (unsigned i = 0; i < ROUNDS_PER_FIRE; i++)
-    {
-        if (0 == _currClipBullets)
-        {
+    for (unsigned i = 0; i < ROUNDS_PER_FIRE; i++) {
+        if (0 == _currClipBullets) {
             reload();
             return false;
         }
@@ -27,8 +23,7 @@ bool Glock::fire(PlayerVitalData& enemyPlayerData)
 
         armor -= damageToArmour;
 
-        if (0 > armor)
-        {
+        if (0 > armor) {
             health += armor;
             armor = 0;
         }
@@ -37,8 +32,7 @@ bool Glock::fire(PlayerVitalData& enemyPlayerData)
 
         std::cout << "Enemy left with: " << health << " health and " << armor << " armor\n";
 
-        if (0 >= health)
-        {
+        if (0 >= health) {
             return true;
         }
     }

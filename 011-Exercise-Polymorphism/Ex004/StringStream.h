@@ -4,15 +4,12 @@
 #include <string>
 #include "TypedStream.h"
 
-class StringStream : public TypedStream<std::string>
-{
+class StringStream : public TypedStream<std::string> {
 public:
-    StringStream(const std::string& input) : TypedStream(input)
-    {
+    StringStream(const std::string &input) : TypedStream(input) {
     }
 
-    TypedStream<std::string>& operator>>(std::string& s) override
-    {
+    TypedStream<std::string> &operator>>(std::string &s) override {
         this->stream >> s;
         return *this;
     }

@@ -8,9 +8,8 @@
 #include <string>
 #include <sstream>
 
-Company* parseUniqueCompanies(std::string companiesStr, int& numParsedComapnies,
-                              std::string (&getUnique)(const Company&))
-{
+Company *parseUniqueCompanies(std::string companiesStr, int &numParsedComapnies,
+                              std::string (&getUnique)(const Company &)) {
     std::istringstream companiesIn(companiesStr);
 
     numParsedComapnies = 0;
@@ -19,8 +18,7 @@ Company* parseUniqueCompanies(std::string companiesStr, int& numParsedComapnies,
     std::vector<Company> companies;
 
     std::string companyLine;
-    while (std::getline(companiesIn, companyLine))
-    {
+    while (std::getline(companiesIn, companyLine)) {
         std::istringstream companyLineIn(companyLine);
 
         int id;
@@ -30,8 +28,7 @@ Company* parseUniqueCompanies(std::string companiesStr, int& numParsedComapnies,
         Company company(id, name);
         std::string uniqueIdentifier = getUnique(company);
 
-        if (parsedUnique.find(uniqueIdentifier) == parsedUnique.end())
-        {
+        if (parsedUnique.find(uniqueIdentifier) == parsedUnique.end()) {
             companies.push_back(company);
             parsedUnique.insert(uniqueIdentifier);
         }
@@ -39,8 +36,7 @@ Company* parseUniqueCompanies(std::string companiesStr, int& numParsedComapnies,
     numParsedComapnies = companies.size();
     auto companiesPtr = new Company[companies.size()];
 
-    for (unsigned i = 0; i < companies.size(); i++)
-    {
+    for (unsigned i = 0; i < companies.size(); i++) {
         companiesPtr[i] = companies[i];
     }
 

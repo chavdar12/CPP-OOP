@@ -6,16 +6,15 @@
 #include "Structs.h"
 #include "Snake.h"
 
-class Field
-{
+class Field {
 public:
-    Field(const FieldConfig& cfg);
+    Field(const FieldConfig &cfg);
 
     ~Field() = default;
 
-    void generatePowerUp(const Point& pos);
+    void generatePowerUp(const Point &pos);
 
-    void generateObstacle(const Point& pos);
+    void generateObstacle(const Point &pos);
 
     StatusCode moveSnake(const Direction dir);
 

@@ -8,8 +8,7 @@
 #include "AverageAggregator.h"
 #include "MinAggregator.h"
 
-int main()
-{
+int main() {
     std::string aggregationType;
     std::cin >> aggregationType;
     std::cin.ignore();
@@ -18,22 +17,15 @@ int main()
     std::getline(std::cin, valuesLine);
     std::istringstream valuesIn(valuesLine);
 
-    StreamAggregator* aggregator;
+    StreamAggregator *aggregator;
 
-    if (aggregationType == "sum")
-    {
+    if (aggregationType == "sum") {
         aggregator = new SumAggregator(valuesIn);
-    }
-    else if (aggregationType == "average")
-    {
+    } else if (aggregationType == "average") {
         aggregator = new AverageAggregator(valuesIn);
-    }
-    else if (aggregationType == "min")
-    {
+    } else if (aggregationType == "min") {
         aggregator = new MinAggregator(valuesIn);
-    }
-    else
-    {
+    } else {
         throw std::exception();
     }
 

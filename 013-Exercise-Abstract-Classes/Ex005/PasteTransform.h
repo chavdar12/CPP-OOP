@@ -6,17 +6,14 @@
 #include "TextTransform.h"
 #include "CutTransform.h"
 
-class PasteTransform : public TextTransform
-{
+class PasteTransform : public TextTransform {
     std::shared_ptr<CutTransform> cut;
 
 public:
-    PasteTransform(std::shared_ptr<CutTransform> cut) : cut(cut)
-    {
+    PasteTransform(std::shared_ptr<CutTransform> cut) : cut(cut) {
     }
 
-    void invokeOn(std::string& text, int start, int end) override
-    {
+    void invokeOn(std::string &text, int start, int end) override {
         auto startInr = text.begin() + start;
         auto endInr = text.begin() + end;
 

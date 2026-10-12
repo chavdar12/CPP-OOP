@@ -4,15 +4,12 @@
 #include "Vector2D.h"
 #include "TypedStream.h"
 
-class VectorStream : public TypedStream<Vector2D>
-{
+class VectorStream : public TypedStream<Vector2D> {
 public:
-    VectorStream(const std::string& input) : TypedStream(input)
-    {
+    VectorStream(const std::string &input) : TypedStream(input) {
     }
 
-    TypedStream<Vector2D>& operator>>(Vector2D& v) override
-    {
+    TypedStream<Vector2D> &operator>>(Vector2D &v) override {
         double x, y;
         this->stream >> x >> y;
 

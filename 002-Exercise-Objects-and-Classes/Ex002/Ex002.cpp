@@ -2,26 +2,22 @@
 #include <cmath>
 #include <iomanip>
 
-struct point
-{
+struct point {
     int x = 0;
     int y = 0;
 
-    float get_dist(const int second_x, const int second_y) const
-    {
+    float get_dist(const int second_x, const int second_y) const {
         const int dx = second_x - x;
         const int dy = second_y - y;
         return std::sqrt(dx * dx + dy * dy);
     }
 };
 
-bool is_integral(const float number)
-{
+bool is_integral(const float number) {
     return number - static_cast<int>(number) == 0;
 }
 
-int main()
-{
+int main() {
     point first;
     std::cin >> first.x >> first.y;
 

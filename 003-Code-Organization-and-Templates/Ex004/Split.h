@@ -5,15 +5,13 @@
 #include <string>
 #include <vector>
 
-template <typename T>
-std::vector<T> split(const std::string& line, char separator)
-{
+template<typename T>
+std::vector<T> split(const std::string &line, char separator) {
     std::vector<T> items;
     std::istringstream iss(line);
     std::string item;
 
-    while (std::getline(iss, item, separator))
-    {
+    while (std::getline(iss, item, separator)) {
         std::istringstream converter(item);
         T value;
         converter >> value;

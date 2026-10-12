@@ -7,8 +7,7 @@
 
 #define HEROES_SIZE 3
 
-int main()
-{
+int main() {
     std::string name;
     int maxMana = 0;
     int baseManaRegenRate = 0;
@@ -25,13 +24,12 @@ int main()
 
     std::cin.ignore();
 
-    std::vector<Hero*> heroes(HEROES_SIZE);
+    std::vector<Hero *> heroes(HEROES_SIZE);
     heroes[0] = &archmage;
     heroes[1] = &deathKnight;
     heroes[2] = &drawRanger;
 
-    for (int i = 0; i < HEROES_SIZE; ++i)
-    {
+    for (int i = 0; i < HEROES_SIZE; ++i) {
         heroes[i]->generateSpells();
     }
 
@@ -40,30 +38,25 @@ int main()
     std::istringstream sstr(input);
     int currAction = 0;
 
-    while (sstr >> currAction)
-    {
-        switch (currAction)
-        {
-        case ActionType::CAST_BASIC_SPELL:
-            for (int i = 0; i < HEROES_SIZE; ++i)
-            {
-                heroes[i]->castSpell(SpellType::BASIC);
-            }
-            break;
+    while (sstr >> currAction) {
+        switch (currAction) {
+            case ActionType::CAST_BASIC_SPELL:
+                for (int i = 0; i < HEROES_SIZE; ++i) {
+                    heroes[i]->castSpell(SpellType::BASIC);
+                }
+                break;
 
-        case ActionType::CAST_ULTIMATE_SPELL:
-            for (int i = 0; i < HEROES_SIZE; ++i)
-            {
-                heroes[i]->castSpell(SpellType::ULTIMATE);
-            }
-            break;
+            case ActionType::CAST_ULTIMATE_SPELL:
+                for (int i = 0; i < HEROES_SIZE; ++i) {
+                    heroes[i]->castSpell(SpellType::ULTIMATE);
+                }
+                break;
 
-        case ActionType::REGENERATE_MANA:
-            for (int i = 0; i < HEROES_SIZE; ++i)
-            {
-                heroes[i]->regenerateMana();
-            }
-            break;
+            case ActionType::REGENERATE_MANA:
+                for (int i = 0; i < HEROES_SIZE; ++i) {
+                    heroes[i]->regenerateMana();
+                }
+                break;
         }
     }
 

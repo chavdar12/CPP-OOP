@@ -7,41 +7,30 @@
 
 #include "RemoveDuplicates.h"
 
-int main()
-{
+int main() {
     using namespace std;
 
     cin.sync_with_stdio(false);
     cout.sync_with_stdio(false);
 
-    list<Company*> companies;
+    list<Company *> companies;
     string line;
-    Company* lastCompany = nullptr;
-    while (getline(cin, line) && line != "end")
-    {
-        if (line[0] != '*')
-        {
+    Company *lastCompany = nullptr;
+    while (getline(cin, line) && line != "end") {
+        if (line[0] != '*') {
             lastCompany = new Company();
             istringstream(line) >> *lastCompany;
             companies.push_back(lastCompany);
-        }
-        else
-        {
-            if (lastCompany == nullptr)
-            {
+        } else {
+            if (lastCompany == nullptr) {
                 throw exception(); // error in parsing - tests or skeleton is wrong
             }
 
-            if (line == "*begin")
-            {
+            if (line == "*begin") {
                 companies.insert(companies.begin(), lastCompany);
-            }
-            else if (line == "*end")
-            {
+            } else if (line == "*end") {
                 companies.insert(companies.end(), lastCompany);
-            }
-            else
-            {
+            } else {
                 throw exception(); // error in parsing - tests or skeleton is wrong
             }
         }
@@ -49,8 +38,7 @@ int main()
 
     removeDuplicates(companies);
 
-    for (Company* companyPtr : companies)
-    {
+    for (Company *companyPtr: companies) {
         cout << *companyPtr << endl;
     }
 }

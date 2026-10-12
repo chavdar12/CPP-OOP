@@ -3,15 +3,12 @@
 
 #include "TypedStream.h"
 
-class IntStream : public TypedStream<int>
-{
+class IntStream : public TypedStream<int> {
 public:
-    IntStream(const std::string& input) : TypedStream(input)
-    {
+    IntStream(const std::string &input) : TypedStream(input) {
     }
 
-    TypedStream<int>& operator>>(int& i) override
-    {
+    TypedStream<int> &operator>>(int &i) override {
         this->stream >> i;
         return *this;
     }

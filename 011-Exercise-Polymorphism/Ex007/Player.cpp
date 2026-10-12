@@ -5,18 +5,12 @@
 #include "Glock.h"
 
 void Player::buyPistol(const PistolType pistolType, const int damagePerRound, const int clipSize,
-                       const int remainingAmmo)
-{
-    if (PistolType::DESERT_EAGLE == pistolType)
-    {
+                       const int remainingAmmo) {
+    if (PistolType::DESERT_EAGLE == pistolType) {
         _pistol = new DesertEagle(damagePerRound, clipSize, remainingAmmo);
-    }
-    else if (PistolType::GLOCK == pistolType)
-    {
+    } else if (PistolType::GLOCK == pistolType) {
         _pistol = new Glock(damagePerRound, clipSize, remainingAmmo);
-    }
-    else
-    {
+    } else {
         std::cout << "Received unsupported PistolType!\n";
     }
 }

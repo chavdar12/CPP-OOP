@@ -3,50 +3,41 @@
 #include <sstream>
 #include <iostream>
 
-List::Node::Node(int value, Node* prev, Node* next) : value(value), prev(prev), next(next)
-{
+List::Node::Node(int value, Node *prev, Node *next) : value(value), prev(prev), next(next) {
 }
 
 int List::Node::getValue() const { return this->value; };
 
-List::Node* List::Node::getNext() const { return this->next; };
+List::Node *List::Node::getNext() const { return this->next; };
 
-List::Node* List::Node::getPrev() const { return this->prev; };
+List::Node *List::Node::getPrev() const { return this->prev; };
 
 void List::Node::setValue(int value) { this->value = value; };
 
-void List::Node::setPrev(Node* prev) { this->prev = prev; };
+void List::Node::setPrev(Node *prev) { this->prev = prev; };
 
-void List::Node::setNext(Node* next) { this->next = next; };
+void List::Node::setNext(Node *next) { this->next = next; };
 
-List::List() : head(nullptr), tail(nullptr), size(0)
-{
+List::List() : head(nullptr), tail(nullptr), size(0) {
 }
 
-List::List(const List& other) : head(nullptr), tail(nullptr), size(0)
-{
+List::List(const List &other) : head(nullptr), tail(nullptr), size(0) {
     this->addAll(other);
 }
 
-int List::first() const
-{
-    if (this->isEmpty())
-    {
+int List::first() const {
+    if (this->isEmpty()) {
         std::cout << "Error!\n";
         return 0;
     }
     return this->head->getValue();
 }
 
-void List::add(int value)
-{
-    if (this->isEmpty())
-    {
+void List::add(int value) {
+    if (this->isEmpty()) {
         this->head = new Node(value, nullptr, nullptr);
         this->tail = this->head;
-    }
-    else
-    {
+    } else {
         auto added = new Node(value, this->tail, nullptr);
         this->tail->setNext(added);
         this->tail = added;
@@ -54,27 +45,20 @@ void List::add(int value)
     this->size++;
 }
 
-void List::addAll(const List& other)
-{
-    for (Node* node = other.head; node != nullptr; node = node->getNext())
-    {
+void List::addAll(const List &other) {
+    for (Node * node = other.head; node != nullptr; node = node->getNext()) {
         this->add(node->getValue());
     }
 }
 
-void List::removeFirst()
-{
-    if (!this->isEmpty())
-    {
-        Node* oldHeadElement = this->head;
+void List::removeFirst() {
+    if (!this->isEmpty()) {
+        Node * oldHeadElement = this->head;
 
-        if (this->head != this->tail)
-        {
+        if (this->head != this->tail) {
             this->head = this->head->getNext();
             this->head->setPrev(nullptr);
-        }
-        else
-        {
+        } else {
             this->head = nullptr;
             this->tail = nullptr;
         }
@@ -84,73 +68,59 @@ void List::removeFirst()
     }
 }
 
-void List::removeAll()
-{
-    while (!this->isEmpty())
-    {
+void List::removeAll() {
+    while (!this->isEmpty()) {
         this->removeFirst();
     }
 }
 
-size_t List::getSize() const
-{
+size_t List::getSize() const {
     return this->size;
 }
 
-bool List::isEmpty() const
-{
+bool List::isEmpty() const {
     return this->getSize() == 0;
 }
 
-List List::getReversed(List l)
-{
+List List::getReversed(List l) {
     List reversed;
-    for (Node* node = l.head; node != nullptr; node = node->getPrev())
-    {
+    for (Node * node = l.head; node != nullptr; node = node->getPrev()) {
         reversed.add(node->getValue());
     }
     return reversed;
 }
 
-std::string List::toString() const
-{
+std::string List::toString() const {
     std::ostringstream output;
 
-    for (Node* node = this->head; node != nullptr; node = node->getNext())
-    {
+    for (Node * node = this->head; node != nullptr; node = node->getNext()) {
         output << node->getValue();
 
-        if (node->getNext() != nullptr)
-        {
+        if (node->getNext() != nullptr) {
             output << ' ';
         }
     }
     return output.str();
 }
 
-List& List::operator<<(const int& value)
-{
+List &List::operator<<(const int &value) {
     this->add(value);
     return *this;
 }
 
-List& List::operator<<(const List& other)
-{
+List &List::operator<<(const List &other) {
     this->addAll(other);
     return *this;
 }
 
-List& List::operator=(const List& other)
-{
-    if (this != &other)
-    {
+List &List::operator=(const List &other) {
+    if (this != &other) {
         this->removeAll();
         this->addAll(other);
     }
     return *this;
 }
 
-List::~List()
-{
+List::~List() {
     this->removeAll();
 }

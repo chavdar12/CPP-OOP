@@ -4,43 +4,26 @@
 #include <string>
 #include "NoteName.h"
 
-class SolfegeNoteNaming
-{
+class SolfegeNoteNaming {
 public:
-    NoteName operator()(const std::string& noteText) const
-    {
+    NoteName operator()(const std::string &noteText) const {
         char englishName;
 
-        if (noteText == "Do")
-        {
+        if (noteText == "Do") {
             englishName = 'C';
-        }
-        else if (noteText == "Re")
-        {
+        } else if (noteText == "Re") {
             englishName = 'D';
-        }
-        else if (noteText == "Mi")
-        {
+        } else if (noteText == "Mi") {
             englishName = 'E';
-        }
-        else if (noteText == "Fa")
-        {
+        } else if (noteText == "Fa") {
             englishName = 'F';
-        }
-        else if (noteText == "Sol")
-        {
+        } else if (noteText == "Sol") {
             englishName = 'G';
-        }
-        else if (noteText == "La")
-        {
+        } else if (noteText == "La") {
             englishName = 'A';
-        }
-        else if (noteText == "Si")
-        {
+        } else if (noteText == "Si") {
             englishName = 'B';
-        }
-        else
-        {
+        } else {
             englishName = '?';
         }
 

@@ -5,41 +5,33 @@
 
 #include "Archmage.h"
 
-Archmage::Archmage(const std::string& name,
+Archmage::Archmage(const std::string &name,
                    const int maxMana,
                    const int baseManaRegenRate,
                    const int manaRegenModifier)
-    : Hero(name, maxMana, baseManaRegenRate)
-{
+    : Hero(name, maxMana, baseManaRegenRate) {
     _manaRegenModifier = manaRegenModifier;
 }
 
 
-void Archmage::castSpell(const SpellType spell)
-{
-    if (_currMana < _spells[spell].manaCost)
-    {
+void Archmage::castSpell(const SpellType spell) {
+    if (_currMana<_spells[spell].manaCost) {
         std::cout << _name << " - not enough mana to cast " << _spells[spell].name << '\n';
-    }
-    else
-    {
+    } else {
         _currMana -= _spells[spell].manaCost;
         std::cout << _name << " casted " << _spells[spell].name << " for " <<
-            _spells[spell].manaCost << " mana" << '\n';
+                _spells[spell].manaCost << " mana" << '\n';
 
-        if (SpellType::ULTIMATE == spell)
-        {
+        if (SpellType::ULTIMATE == spell) {
             regenerateMana();
         }
     }
 }
 
-void Archmage::regenerateMana()
-{
+void Archmage::regenerateMana() {
     _currMana += (_manaRegenModifier * _manaRegenRate);
 
-    if (_currMana > _maxMana)
-    {
+    if (_currMana > _maxMana) {
         _currMana = _maxMana;
     }
 }

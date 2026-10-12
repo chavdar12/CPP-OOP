@@ -8,28 +8,20 @@
 
 #include "Company.h"
 
-void removeDuplicates(std::list<Company*>& companies)
-{
-    std::set<void*> uniquePointers;
+void removeDuplicates(std::list<Company *> &companies) {
+    std::set<void *> uniquePointers;
     std::set<std::string> uniqueCompanyNames;
 
     auto i = companies.begin();
-    while (i != companies.end())
-    {
-        Company* ptr = *i;
+    while (i != companies.end()) {
+        Company *ptr = *i;
 
-        if (uniquePointers.find((void*)ptr) != uniquePointers.end())
-        {
+        if (uniquePointers.find((void *) ptr) != uniquePointers.end()) {
             i = companies.erase(i);
-        }
-        else
-        {
-            if (uniqueCompanyNames.find(ptr->getName()) != uniqueCompanyNames.end())
-            {
+        } else {
+            if (uniqueCompanyNames.find(ptr->getName()) != uniqueCompanyNames.end()) {
                 i = companies.erase(i);
-            }
-            else
-            {
+            } else {
                 i++;
                 uniquePointers.insert(ptr);
                 uniqueCompanyNames.insert(ptr->getName());

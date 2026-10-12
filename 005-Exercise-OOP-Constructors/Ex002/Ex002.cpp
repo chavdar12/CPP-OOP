@@ -7,15 +7,13 @@
 
 #include "Find.h"
 
-int main()
-{
+int main() {
     using namespace std;
 
-    vector<Company*> companies;
+    vector<Company *> companies;
 
     string line;
-    while (getline(cin, line) && line != "end")
-    {
+    while (getline(cin, line) && line != "end") {
         istringstream lineIn(line);
 
         auto c = new Company();
@@ -27,19 +25,15 @@ int main()
     getline(cin, searchIdLine);
     int searchId = stoi(searchIdLine);
 
-    Company* companyWithSearchedId = find(companies, searchId);
+    Company *companyWithSearchedId = find(companies, searchId);
 
-    if (companyWithSearchedId != nullptr)
-    {
+    if (companyWithSearchedId != nullptr) {
         cout << *companyWithSearchedId << endl;
-    }
-    else
-    {
+    } else {
         cout << "[not found]" << endl;
     }
 
-    for (auto companyPtr : companies)
-    {
+    for (auto companyPtr: companies) {
         delete companyPtr;
     }
 

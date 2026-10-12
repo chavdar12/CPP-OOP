@@ -3,8 +3,7 @@
 
 #include "Wheel.h"
 
-class Car
-{
+class Car {
 public:
     Car(int wheelAngle, double speed);
 

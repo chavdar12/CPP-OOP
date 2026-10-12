@@ -3,12 +3,11 @@
 
 #include "Hero.h"
 
-class Archmage : public Hero
-{
+class Archmage : public Hero {
 public:
     Archmage() = delete;
 
-    Archmage(const std::string& name,
+    Archmage(const std::string &name,
              const int maxMana,
              const int baseManaRegenRate,
              const int manaRegenModifier);
@@ -20,8 +19,7 @@ public:
     void regenerateMana() override;
 
 private:
-    void generateSpells() override
-    {
+    void generateSpells() override {
         _spells = {
             {"Water Elemental", 120},
             {"Mass Teleport", 180}

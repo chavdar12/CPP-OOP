@@ -7,13 +7,11 @@
 #include "Comparators.h"
 #include "PrintUtils.h"
 
-std::ostream& operator<<(std::ostream& out, const Song& s)
-{
+std::ostream &operator<<(std::ostream &out, const Song &s) {
     return out << s.getName() << " " << s.getLengthSeconds();
 }
 
-std::istream& operator>>(std::istream& in, Song& s)
-{
+std::istream &operator>>(std::istream &in, Song &s) {
     std::string name;
     int length;
     in >> name >> length;
@@ -22,52 +20,41 @@ std::istream& operator>>(std::istream& in, Song& s)
     return in;
 }
 
-int main()
-{
+int main() {
     char type;
     std::cin >> type;
     std::cin.ignore();
     std::string stopLine;
     std::getline(std::cin, stopLine);
 
-    if (type == 'i')
-    {
+    if (type == 'i') {
         Parser<int> p(std::cin, stopLine);
         int n;
-        using Set = std::set<int, Reverse<int, LessThan<int>>>;
+        using Set = std::set<int, Reverse<int, LessThan<int> > >;
         Set numbers;
-        while (p.readNext(n))
-        {
+        while (p.readNext(n)) {
             numbers.insert(n);
         }
         printContainer<Set>(numbers.begin(), numbers.end());
-    }
-    else if (type == 'w')
-    {
+    } else if (type == 'w') {
         Parser<std::string> p(std::cin, stopLine);
         std::string w;
-        using Set = std::set<std::string, Reverse<std::string, LessThan<std::string>>>;
+        using Set = std::set<std::string, Reverse<std::string, LessThan<std::string> > >;
         Set words;
-        while (p.readNext(w))
-        {
+        while (p.readNext(w)) {
             words.insert(w);
         }
         printContainer<Set>(words.begin(), words.end());
-    }
-    else if (type == 's')
-    {
+    } else if (type == 's') {
         Parser<Song> p(std::cin, stopLine);
         Song s;
-        using Set = std::set<Song, Reverse<Song, LessThan<Song>>>;
+        using Set = std::set<Song, Reverse<Song, LessThan<Song> > >;
         Set songs;
-        while (p.readNext(s))
-        {
+        while (p.readNext(s)) {
             songs.insert(s);
         }
         printContainer<Set>(songs.begin(), songs.end());
-    }
-    else
-    {
+    } else {
         std::cout << "[invalid input]" << std::endl;
     }
 

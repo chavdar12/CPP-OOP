@@ -5,8 +5,7 @@
 #include "Filter.h"
 #include "FilterFactory.h"
 
-int main()
-{
+int main() {
     std::string input;
     std::getline(std::cin, input);
 
@@ -15,7 +14,7 @@ int main()
     std::string filterDefinition;
     std::getline(std::cin, filterDefinition);
 
-    Filter* filter = factory.buildFilter(filterDefinition);
+    Filter *filter = factory.buildFilter(filterDefinition);
 
     filter->append(input);
 

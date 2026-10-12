@@ -6,20 +6,19 @@
 
 #include <deque>
 
-class Snake
-{
+class Snake {
 public:
     Snake(const int fieldRows,
           const int fieldCols,
-          const Point& startPos);
+          const Point &startPos);
 
     ~Snake();
 
     StatusCode move(const Direction dir,
-                    const std::vector<Point>& obstacles,
-                    std::vector<Point>& powerUps);
+                    const std::vector<Point> &obstacles,
+                    std::vector<Point> &powerUps);
 
-    std::deque<Point>& getSnakeNodes();
+    std::deque<Point> &getSnakeNodes();
 
 private:
     const int _FIELD_ROWS;
