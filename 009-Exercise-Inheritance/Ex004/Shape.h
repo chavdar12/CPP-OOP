@@ -6,7 +6,7 @@
 class Shape {
 protected:
     Vector2D center;
-    float area;
+    float area = 0;
 
 public:
     Shape() : center(0, 0) {

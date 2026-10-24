@@ -1,5 +1,5 @@
 #ifndef ECHO_H
-#define EHOO_H
+#define ECHO_H
 
 #include <iostream>
 #include <string>

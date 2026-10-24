@@ -1,0 +1,11 @@
+directory 1 root
+file 2 a.txt hello
+file 3 b.txt hi there
+copy 2 1
+copy 3 1
+size 1
+path 3
+print 3
+size 2
+bogus 0
+end

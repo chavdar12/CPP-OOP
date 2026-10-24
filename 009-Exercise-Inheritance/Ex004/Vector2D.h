@@ -4,6 +4,7 @@
 #include <cmath>
 #include <string>
 #include <sstream>
+#include <iomanip>
 
 class Vector2D {
     double x, y;

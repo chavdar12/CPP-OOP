@@ -32,6 +32,7 @@ void ContactManagerUI::handleInput(char choice) {
 
         if (contactIterator != this->contacts.end()) {
             echo(std::string("... removed ") + (std::string) * contactIterator);
+            this->contacts.erase(contactIterator);
         } else {
             echo("... no such contact");
         }

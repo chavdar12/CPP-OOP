@@ -12,7 +12,7 @@ template<typename T, typename Comparator>
 struct Reverse {
     const bool operator()(const T &lhs, const T &rhs) const {
         Comparator comparator;
-        return !comparator(lhs, rhs);
+        return comparator(rhs, lhs);
     }
 };
 

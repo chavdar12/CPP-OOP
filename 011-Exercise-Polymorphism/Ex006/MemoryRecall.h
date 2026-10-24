@@ -21,7 +21,7 @@ public:
     }
 
     int getResult() override {
-        return mMemorySave->getResult();
+        return mMemorySave->recall();
     }
 
 private:

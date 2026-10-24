@@ -6,7 +6,7 @@
 
 class ProfitCalculator {
 private:
-    int taxPercentage;
+    int taxPercentage = 0;
 
 public:
     int calculateProfit(const Company &company) const {

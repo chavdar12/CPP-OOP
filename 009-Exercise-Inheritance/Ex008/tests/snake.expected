@@ -1,0 +1,30 @@
+Printing initial Field state:
+...o
+.@*.
+....
+
+MOVE_SNAKE in dir: RIGHT, status: SNAKE_GROWING
+Printing Field:
+...o
+.x@.
+....
+
+GENERATE_POWER_UP at row: 2, col: 0
+Printing Field:
+...o
+.x@.
+*...
+
+GENERATE_OBSTACLE at row: 2, col: 3
+Printing Field:
+...o
+.x@.
+*..o
+
+MOVE_SNAKE in dir: RIGHT, status: SNAKE_MOVING
+Printing Field:
+...o
+..x@
+*..o
+
+MOVE_SNAKE in dir: UP, status: SNAKE_DEAD

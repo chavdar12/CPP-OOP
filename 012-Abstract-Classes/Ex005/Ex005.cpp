@@ -89,7 +89,7 @@ int main() {
 
     auto spiderUpcastToOrganism = dynamic_cast<Organism *>(&spider);
     auto spiderCastToCompany = dynamic_cast<Company *>(&spider);
-    auto spiderUpcastToDescribable = dynamic_cast<Organism *>(&spider);
+    auto spiderUpcastToDescribable = dynamic_cast<Describable *>(&spider);
     auto companyUpcastToDescribable = dynamic_cast<Describable *>(&company);
     auto companyUpcastToDescribableDowncastToSpider = dynamic_cast<Spider *>(companyUpcastToDescribable);
 

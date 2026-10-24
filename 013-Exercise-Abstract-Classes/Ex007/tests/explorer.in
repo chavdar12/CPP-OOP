@@ -1,0 +1,11 @@
+md docs
+md pics
+cd docs
+mf a.txt hello
+md sub
+cd ..
+cut pics
+cd docs
+paste
+sc sub
+end

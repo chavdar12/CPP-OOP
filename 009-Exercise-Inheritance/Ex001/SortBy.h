@@ -2,7 +2,7 @@
 #define SORT_BY_H
 
 #include "Company.h"
-#include <algorithm>>
+#include <algorithm>
 
 template<typename T>
 void sortBy(T * start, T * end, bool(*lessFunction)(const Company & a, const Company & b)) {

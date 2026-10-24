@@ -1,0 +1,4 @@
+speed: 50 parking brake: no
+speed: 0 parking brake: yes
+speed: 70 parking brake: no, spoilerOn: yes
+speed: 0 parking brake: yes, spoilerOn: no

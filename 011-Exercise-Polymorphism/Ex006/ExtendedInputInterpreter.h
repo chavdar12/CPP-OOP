@@ -16,9 +16,6 @@ public:
         }
 
         if (operation == "ms") {
-            if (!mMemorySave) {
-                mMemorySave = std::make_shared<MemorySaveOperation>();
-            }
             return mMemorySave;
         }
 
@@ -30,5 +27,6 @@ public:
     }
 
 private:
-    std::shared_ptr<MemorySaveOperation> mMemorySave;
+    // created up front so "mr" before any "ms" doesn't dereference null
+    std::shared_ptr<MemorySaveOperation> mMemorySave = std::make_shared<MemorySaveOperation>();
 };

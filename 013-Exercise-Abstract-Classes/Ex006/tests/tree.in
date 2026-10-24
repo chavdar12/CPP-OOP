@@ -1,0 +1,9 @@
+directory 1 docs
+file 2 a.txt x
+directory 3 pics
+file 4 b.png y
+move 2 1
+move 4 3
+move 3 1
+shortcut 2
+end

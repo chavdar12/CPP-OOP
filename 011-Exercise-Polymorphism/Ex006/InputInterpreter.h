@@ -34,6 +34,8 @@ public:
 
         return std::shared_ptr<Operation>(nullptr);
     }
+
+    virtual ~InputInterpreter() = default;
 };
 
 #endif // INPUT_INTERPRETER

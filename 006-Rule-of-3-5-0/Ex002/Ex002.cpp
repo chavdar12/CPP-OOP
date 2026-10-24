@@ -41,7 +41,7 @@ public:
     SmartArray &operator=(SmartArray &&other) = delete;
 
     ~SmartArray() {
-        delete _data;
+        delete[] _data;
         _data = nullptr;
     }
 

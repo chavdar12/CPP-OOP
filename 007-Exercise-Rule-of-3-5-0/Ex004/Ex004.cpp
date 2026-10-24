@@ -37,7 +37,7 @@ int main() {
     int uniquenessCriteria;
     std::cin >> uniquenessCriteria;
 
-    int numCompanies;
+    int numCompanies = 0;
     Company *companies;
 
     if (uniquenessCriteria == 1) {

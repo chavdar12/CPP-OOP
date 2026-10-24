@@ -1,0 +1,5 @@
+Allocate Single 0 - success
+Allocate Single 0 - memory leak prevented, will not make allocation
+Deallocate Multiple 0 - Warning allocate/deallocate mismatch, will skip this deallocation
+Deallocate Single 0 - success
+Deallocate Single 0 - system crash prevented, will skip this deallocation

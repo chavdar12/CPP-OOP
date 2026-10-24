@@ -1,0 +1,29 @@
+PlayerID 0 turn:
+Enemy left with: 90 health and 40 armor
+Enemy left with: 80 health and 30 armor
+Enemy left with: 70 health and 20 armor
+
+PlayerID 1 turn:
+Enemy left with: 70 health and 40 armor
+
+PlayerID 0 turn:
+Enemy left with: 60 health and 10 armor
+Enemy left with: 50 health and 0 armor
+Enemy left with: 30 health and 0 armor
+
+PlayerID 1 turn:
+Enemy left with: 40 health and 30 armor
+
+PlayerID 0 turn:
+Reloading...
+currClipBullets: 6, remainingAmmo: 0
+
+PlayerID 1 turn:
+Reloading...
+currClipBullets: 2, remainingAmmo: 0
+
+PlayerID 0 turn:
+Enemy left with: 10 health and 0 armor
+Enemy left with: -10 health and 0 armor
+
+Player with ID: 0 wins!

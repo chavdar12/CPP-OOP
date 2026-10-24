@@ -84,7 +84,7 @@ bool List::isEmpty() const {
 
 List List::getReversed(List l) {
     List reversed;
-    for (Node * node = l.head; node != nullptr; node = node->getPrev()) {
+    for (Node * node = l.tail; node != nullptr; node = node->getPrev()) {
         reversed.add(node->getValue());
     }
     return reversed;

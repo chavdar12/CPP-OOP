@@ -63,7 +63,7 @@ int main() {
         Company newResult = doRun(inputStr);
         if (run > 0) {
             if (result.getId() != newResult.getId() || result.getName() != newResult.getName()) {
-                std::cout << "wrong result on run " + run << std::endl;
+                std::cout << "wrong result on run " << run << std::endl;
             }
         }
 

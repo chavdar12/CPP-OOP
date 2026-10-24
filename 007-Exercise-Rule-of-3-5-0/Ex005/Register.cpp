@@ -28,9 +28,7 @@ Register &Register::operator=(const Register &other) {
             temp[i] = other.companiesArray[i];
         }
 
-        if (this != nullptr) {
-            delete[] this->companiesArray;
-        }
+        delete[] this->companiesArray;
 
         this->numAdded = other.numAdded;
         this->companiesArray = temp;

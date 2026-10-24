@@ -5,6 +5,8 @@
 #include "Defines.h"
 #include "Structs.h"
 
+#include <memory>
+
 class Player {
 public:
     Player(const int health,
@@ -12,10 +14,6 @@ public:
            const int playerId) : _pistol(nullptr),
                                  _vitalData(health, armor),
                                  _playerId(playerId) {
-    }
-
-    ~Player() {
-        delete _pistol;
     }
 
     void buyPistol(const PistolType pistolType,
@@ -38,7 +36,7 @@ public:
     }
 
 private:
-    Pistol *_pistol;
+    std::unique_ptr<Pistol> _pistol;
 
     PlayerVitalData _vitalData;
 

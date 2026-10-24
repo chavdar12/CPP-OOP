@@ -28,6 +28,10 @@ public:
     }
 
     void pushOperation(std::shared_ptr<Operation> operation) {
+        if (!operation) {
+            return; // unknown operation
+        }
+
         if (operation->isCompleted()) {
             this->pushNumber(operation->getResult());
         } else {

@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <cmath>
 
 struct location {
     std::string name;

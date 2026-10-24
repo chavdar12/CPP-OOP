@@ -20,9 +20,11 @@ int main() {
     std::cin >> time;
 
     for (int t = 0; t < time; ++t) {
+        // read from a snapshot so fire lit this step doesn't spread again in the same step
+        const auto before = matrix;
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < cols; ++j) {
-                if (matrix[i][j] == '!') {
+                if (before[i][j] == '!') {
                     if (i > 0 && matrix[i - 1][j] == '.') {
                         matrix[i - 1][j] = '!';
                     }

@@ -48,7 +48,7 @@ namespace Organisms {
 
         string getInfo() const {
             ostringstream stream;
-            stream << (this->isBlack ? "Black " : "White ") << " Sheep, " << Organism::getInfo();
+            stream << (this->isBlack ? "Black" : "White") << " Sheep, " << Organism::getInfo();
             return stream.str();
         }
     };

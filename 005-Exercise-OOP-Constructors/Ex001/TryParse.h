@@ -4,12 +4,10 @@
 #include <sstream>
 
 
-const bool tryParse(const std::string &str, int &result) {
+bool tryParse(const std::string &str, int &result) {
     std::istringstream istr(str);
 
-    istr >> result;
-
-    return (bool) result;
+    return static_cast<bool>(istr >> result);
 }
 
 #endif
